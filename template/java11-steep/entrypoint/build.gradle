@@ -19,6 +19,12 @@ plugins {
 mainClassName = 'App'
 
 dependencies {
+
+    implementation "de.fhg.igd:steep:5.2.0-beta.3"
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.4'
+
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:23.0'
 
