@@ -1,24 +1,28 @@
-## Template: java8
+## Template: java11-steep
 
-The Java8 template uses gradle as a build system.
+The Java11 Steep template uses gradle as a build system.
 
-Gradle version: 5.5.1
+Gradle version: 6.3
 
 ### Structure
 
-There are three projects which make up a single gradle build:
+This template is based on the official java11 template.
+The main *.java files are unchanged. 
+If there are any updates, they can be applied to this template too.
 
-- model - (Library) classes for parsing request/response
-- function - (Library) your function code as a developer, you will only ever see this folder
-- entrypoint - (App) HTTP server for re-using the JVM between requests
-
-### Handler
-
-The handler is written in the `./src/main/Handler.java` folder
-
-Tests are supported with junit via files in `./src/test`
-
-### External dependencies
-
-External dependencies can be specified in ./build.gradle in the normal way using jcenter, a local JAR or some other remote repository.
-
+Changes in comparison to the official java11 template:
+- `entrypoint` Project
+  - Added the class `com.openfaas.function.Handler`
+    This is required because we need to wrap the function Handler (defined in the `function` package).
+    Our function should be called with a steep object. 
+    The wrapper defined in the new class creates such an object.
+  - Added the test `com.openfaas.function.Handler` which tests the handler wrapper.
+  - `build.gradle` contains dependencies to `jackson-databind` and `jackson-module-kotlin`
+- `function` Project
+  - Deleted the package `com.openfaas.function` It is now implemented in the `entrypoint` package.
+  - Added the package `io.steep.faas` This implementation receives the steep object created by the wrapper in `entrypoint`.
+- `model` Project
+  - Added the interface `io.steep.faas.IHandler`
+- `build.gradle` and `settings.gradle` include Steep. 
+  Please note, that it is included via Git Submodule. 
+  The specified versions in gradle and the submodule have to match.
