@@ -1,3 +1,0 @@
-[submodule "template/java11-steep/steep"]
-	path = template/java11-steep/steep
-	url = https://github.com/steep-wms/steep.git
