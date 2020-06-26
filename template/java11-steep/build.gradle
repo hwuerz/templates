@@ -13,4 +13,12 @@ allprojects {
 
 subprojects {
     version = '1.0'
+
+    allprojects {
+        plugins.withType(JavaPlugin) {
+            dependencies {
+                implementation "de.fhg.igd:steep:5.2.0-beta.3"
+            }
+        }
+    }
 }
