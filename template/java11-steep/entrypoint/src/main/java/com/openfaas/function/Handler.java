@@ -11,7 +11,7 @@ import model.processchain.Executable;
 
 public class Handler implements IHandler {
 
-    io.steep.faas.Handler steepHandler = new io.steep.faas.Handler();
+    de.fhg.igd.steep.faas.Handler steepHandler = new de.fhg.igd.steep.faas.Handler();
     ObjectMapper objectMapper = new ObjectMapper();
 
     public Handler() {

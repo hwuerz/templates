@@ -17,13 +17,14 @@ import java.util.Map;
 import com.sun.net.httpserver.Headers;
 
 import com.openfaas.model.*;
+import com.openfaas.function.Handler;
 
 public class App {
 
     public static void main(String[] args) throws Exception {
         int port = 8082;
 
-        IHandler handler = new com.openfaas.function.Handler();
+        IHandler handler = new Handler();
 
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         InvokeHandler invokeHandler = new InvokeHandler(handler);
@@ -56,7 +57,7 @@ public class App {
                 // StandardCharsets.UTF_8.name() > JDK 7
                 requestBody = result.toString("UTF-8");
 	        }
-            
+
             // System.out.println(requestBody);
             Headers reqHeaders = t.getRequestHeaders();
             Map<String, String> reqHeadersMap = new HashMap<String, String>();
@@ -73,7 +74,7 @@ public class App {
             // }
 
             IRequest req = new Request(requestBody, reqHeadersMap,t.getRequestURI().getRawQuery(), t.getRequestURI().getPath());
-            
+
             IResponse res = this.handler.Handle(req);
 
             String response = res.getBody();

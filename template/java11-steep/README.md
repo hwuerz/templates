@@ -24,5 +24,4 @@ Changes in comparison to the official java11 template:
 - `model` Project
   - Added the interface `io.steep.faas.IHandler`
 - `build.gradle` and `settings.gradle` include Steep. 
-  Please note, that it is included via Git Submodule. 
-  The specified versions in gradle and the submodule have to match.
+  Please note, that it is included via the git repository.

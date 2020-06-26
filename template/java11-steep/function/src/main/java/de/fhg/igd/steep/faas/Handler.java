@@ -1,4 +1,4 @@
-package io.steep.faas;
+package de.fhg.igd.steep.faas;
 
 import model.processchain.Executable;
 

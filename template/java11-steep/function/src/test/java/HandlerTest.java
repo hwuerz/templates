@@ -1,4 +1,4 @@
-import io.steep.faas.Handler;
+import de.fhg.igd.steep.faas.Handler;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
