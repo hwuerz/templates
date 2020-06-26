@@ -15,6 +15,9 @@ import static org.junit.Assert.assertEquals;
          Request request = new Request(body, new HashMap<>());
          IResponse response = handler.Handle(request);
          assertEquals(200, response.getStatusCode());
-         assertEquals("Hello, world!", response.getBody());
+         // You can use this test as long as you develop the template.
+         // But it MUST NOT be included in the final version.
+         // The custom function will return anything and this test leads to a failure during deployment.
+//         assertEquals("Hello, world!", response.getBody());
      }
  }
